@@ -579,7 +579,7 @@
                     </div>
                 </div>
 
-                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up " data-aos-delay="300 ">
+                <form class="php-email-form" data-aos="fade-up " data-aos-delay="300 ">
                     <div class="row gy-4 ">
 
                         <div class="col-md-6 ">
@@ -677,6 +677,38 @@
          <script src="assets/js/main.js"></script>
         <script src="assets/js/php-email-form.js"></script>
 
+        <!-- EmailJS CDN + script -->
+        <!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init('cz7gbyMk3p92gsPas'); // Public Key here
+
+  document.querySelector('.php-email-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const loading    = this.querySelector('.loading');
+    const errorMsg   = this.querySelector('.error-message');
+    const successMsg = this.querySelector('.sent-message');
+
+    loading.style.display    = 'block';
+    errorMsg.style.display   = 'none';
+    successMsg.style.display = 'none';
+
+    emailjs.sendForm('service_3r0sf2e', 'template_4wvc0lb', this)
+      .then(() => {
+        loading.style.display    = 'none';
+        successMsg.style.display = 'block';
+        this.reset();
+      })
+      .catch((error) => {
+        loading.style.display  = 'none';
+        errorMsg.textContent   = 'Failed to send. Please try again.';
+        errorMsg.style.display = 'block';
+        console.error(error);
+      });
+  });
+</script>
 </body>
 
 </html>

@@ -1,41 +1,68 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'aphoe4x@gmail.com';
+// var_dump($_POST); exit;
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+// Block direct access
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(403);
+    echo "Forbidden";
+    exit;
+}
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+// Load PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+// Sanitize inputs
+function clean($data) {
+    return htmlspecialchars(strip_tags(trim($data)));
+}
 
-  echo $contact->send();
+$name    = clean($_POST["name"]    ?? "");
+$email   = clean($_POST["email"]   ?? "");
+$message = clean($_POST["message"] ?? "");
+
+// Validate
+if (empty($name) || empty($email) || empty($message)) {
+    http_response_code(400);
+    echo "Please fill in all fields.";
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo "Invalid email address.";
+    exit;
+}
+
+// Send via Gmail SMTP
+$mail = new PHPMailer(true);
+
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'aphoe4x@gmail.com';     // your Gmail
+    $mail->Password   = 'maoj yovq koqo naam';   // paste your App Password here
+    $mail->SMTPSecure = 'tls';
+    $mail->Port       = 587;
+
+    $mail->setFrom('aphoe4x@gmail.com', 'Portfolio Contact');
+    $mail->addAddress('aphoe4x@gmail.com');
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = "New Portfolio Message from $name";
+    $mail->Body    = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+    $mail->send();
+    echo "OK";
+
+} catch (Exception $e) {
+    http_response_code(500);
+    echo "Failed to send. Error: {$mail->ErrorInfo}";
+}
 ?>

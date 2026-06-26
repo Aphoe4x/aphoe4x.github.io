@@ -579,24 +579,24 @@
                     </div>
                 </div>
 
-                <form action="forms/contact.php " method="post " class="php-email-form " data-aos="fade-up " data-aos-delay="300 ">
+                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up " data-aos-delay="300 ">
                     <div class="row gy-4 ">
 
                         <div class="col-md-6 ">
-                            <input type="text " name="name " class="form-control " placeholder="Your Name " required=" ">
+                            <input type="text " name="name" class="form-control " placeholder="Your Name " required>
                         </div>
 
                         <div class="col-md-6 ">
-                            <input type="email " class="form-control " name="email " placeholder="Your Email " required=" ">
+                            <input type="email " class="form-control " name="email" placeholder="Your Email " required=" ">
                         </div>
                         <!-- 
                         <div class="col-md-12 ">
                             <input type="text " class="form-control " name="subject " placeholder="Subject " required=" ">
                         </div> -->
 
-                        <div class="col-md-12 ">
-                            <textarea class="form-control " name="message " rows="6 " placeholder="Tell me about your project " required=" "></textarea>
-                        </div>
+                        <div class="col-md-12">
+  <textarea class="form-control" name="message" rows="6" placeholder="Tell me about your project" required></textarea>
+</div>
 
                         <div class="col-md-12 text-center ">
                             <div class="loading ">Loading</div>
@@ -617,23 +617,27 @@
 
         </main>
 
-        <footer style="background:#080808;border-top:1px solid rgb(108,117,125);padding:36px 20px;">
-            <div style="max-width:1320px; margin:0 auto; display:flex; align-items:center;justify-content:space-between; gap:5px; flex-wrap:wrap; text-align:center;">
-                <span style="font-family:'Playfair Display',serif; font-style:italic;font-size:22px; font-weight:600; color:#fdfbf6;">
-            aphoe.
-        </span>
+        <style>
+            @media (max-width: 768px) {
+                #aphoe-footer {
+                    padding: 24px 20px !important;
+                }
+                #aphoe-footer-inner {
+                    flex-direction: column !important;
+                    gap: 18px;
+                    text-align: center;
+                }
+            }
+        </style>
 
-                <p style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:rgb(108,117,125);margin:0;">
-                    © 2026 Afolabi Abdulbasit.
-                </p>
-
-                <div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:center;">
-                    <a href="https://github.com/aphoe4x " target="_blank " rel="noopener noreferrer " style="font-family: &quot;DM Sans&quot;, sans-serif; font-size: 13px; font-weight: 400; color: rgb(108, 117, 125);
-                    text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; ">GitHub</a>
-                    <a href="https://www.linkedin.com/in/afolabi-abdulbasit-604784275/ " target="_blank " rel="noopener noreferrer " style="font-family: &quot;DM Sans&quot;, sans-serif; font-size: 13px; font-weight: 400; color: rgb(108, 117, 125); text-decoration:
-                    none; letter-spacing: 0.04em; transition: color 0.2s; ">LinkedIn</a>
-                    <a href="mailto:aphoe4x@gmail.com " rel="noopener noreferrer " style="font-family: &quot;DM Sans&quot;, sans-serif; font-size: 13px; font-weight: 400; color: rgb(108, 117, 125); text-decoration: none; letter-spacing: 0.04em; transition:
-                    color 0.2s; ">Email</a>
+        <footer id="aphoe-footer" style="background: rgb(8, 8, 8); border-top: 1px solid rgb(108, 117, 125); padding: 36px 60px;">
+            <div id="aphoe-footer-inner" style="max-width: 1320px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; font-weight: 600; color: rgb(253, 251, 246); letter-spacing: -0.3px;">aphoe.</span>
+                <p style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 300; color: rgb(108, 117, 125); margin: 0px; letter-spacing: 0.03em;">© 2026 Afolabi Abdulbasit. All rights reserved.</p>
+                <div style="display: flex; gap: 28px;">
+                    <a href="https://github.com/aphoe4x" target="_blank" rel="noopener noreferrer" style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400; color: rgb(108, 117, 125); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;">GitHub</a>
+                    <a href="https://www.linkedin.com/in/afolabi-abdulbasit-604784275/" target="_blank" rel="noopener noreferrer" style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400; color: rgb(108, 117, 125); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;">LinkedIn</a>
+                    <a href="mailto:aphoe4x@gmail.com" rel="noopener noreferrer" style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400; color: rgb(108, 117, 125); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s;">Email</a>
                 </div>
             </div>
         </footer>
@@ -670,7 +674,8 @@
         <script src="assets/vendor/swiper/swiper-bundle.min.js "></script>
 
         <!-- Main JS File -->
-        <script src="assets/js/main.js "></script>
+         <script src="assets/js/main.js"></script>
+        <script src="assets/js/php-email-form.js"></script>
 
 </body>
 

@@ -1,0 +1,239 @@
+<?php
+$name      = "Afolabi";
+$full_name = "Afolabi Abdulbasit Opeyemi";
+$email     = "aphoe4x@gmail.com";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>aphoe | Afolabi Abdulbasit</title>
+  <meta name="description" content="Software Engineer based in Lagos, Nigeria. PHP, Laravel & WordPress developer.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['"DM Sans"', 'sans-serif'] } } } }
+  </script>
+  <style>
+    html { scrollbar-gutter: stable; }
+    body { font-family: 'DM Sans', sans-serif; }
+    .link-underline { position: relative; font-weight: 700; }
+    .link-underline::after {
+      content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
+      background: #000; transform: scaleX(0); transform-origin: left; transition: transform .3s ease-in-out;
+    }
+    .dark .link-underline::after { background: #fff; }
+    .link-underline:hover::after { transform: scaleX(1); }
+    .tab-link { color: rgba(0,0,0,.6); }
+    .dark .tab-link { color: rgba(255,255,255,.6); }
+    .tab-link:hover { color: rgba(0,0,0,.9); }
+    .dark .tab-link:hover { color: rgba(255,255,255,.9); }
+    .tab-link.active { background: #fff; color: #000; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+    .dark .tab-link.active { background: rgba(255,255,255,.08); color: #fff; }
+  </style>
+</head>
+<body class="bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 antialiased">
+<script>
+  (function(){try{var t=localStorage.getItem('theme')||'system';var d=t==='system'?window.matchMedia('(prefers-color-scheme: dark)').matches:t==='dark';document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light';}catch(e){}})();
+</script>
+
+<div class="relative min-h-screen w-full bg-zinc-50 dark:bg-zinc-900">
+  <main class="relative z-10 mx-auto mt-16 max-w-xl px-4 py-4 text-zinc-900 dark:text-zinc-100">
+    <section class="flex flex-col gap-8">
+      <div class="flex flex-col gap-8">
+        <section class="flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <h2 class="font-medium text-2xl tracking-tight">Hi, I'm <?php echo $name; ?></h2>
+            <div class="flex items-center gap-4">
+              <a aria-label="View source code on GitHub" class="group flex h-9 w-9 cursor-pointer items-center justify-center rounded-md p-2 transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none" href="https://github.com/aphoe4x/aphoe4x.github.io" rel="noopener noreferrer" target="_blank">
+                <svg class="h-5 w-5 text-zinc-600 dark:text-zinc-400" fill="currentColor" viewBox="0 0 29 28" width="29" height="28"><path d="M14.1735 0C6.143 0 0 6.09668 0 14.1272C0 20.5481 4.04129 26.0426 9.81374 27.9764C10.5548 28.1096 10.8154 27.6522 10.8154 27.2758C10.8154 26.9169 10.798 24.9368 10.798 23.7209C10.798 23.7209 6.74514 24.5894 5.89404 21.9955C5.89404 21.9955 5.234 20.3107 4.28447 19.8765C4.28447 19.8765 2.9586 18.9674 4.3771 18.9848C4.3771 18.9848 5.81877 19.1006 6.61197 20.4786C7.87994 22.7135 10.0048 22.0708 10.8328 21.6887C10.9659 20.7623 11.3423 20.1196 11.7591 19.7375C8.52261 19.3785 5.25716 18.9096 5.25716 13.3397C5.25716 11.7475 5.69718 10.9485 6.62355 9.92954C6.47302 9.5532 5.98088 8.00153 6.77409 5.99825C7.98416 5.62191 10.7691 7.5615 10.7691 7.5615C11.927 7.23728 13.1718 7.06937 14.4051 7.06937C15.6383 7.06937 16.8831 7.23728 18.0411 7.5615C18.0411 7.5615 20.826 5.61613 22.0361 5.99825C22.8293 8.00732 22.3371 9.5532 22.1866 9.92954C23.113 10.9543 23.6804 11.7533 23.6804 13.3397C23.6804 18.9269 20.2702 19.3727 17.0337 19.7375C17.5663 20.1949 18.0179 21.0634 18.0179 22.424C18.0179 24.3751 18.0005 26.7895 18.0005 27.2643C18.0005 27.6406 18.2669 28.098 19.0022 27.9648C24.792 26.0426 28.7175 20.5481 28.7175 14.1272C28.7175 6.09668 22.204 0 14.1735 0Z"></path></svg>
+              </a>
+              <button id="themeToggle" type="button" aria-label="Toggle theme" class="group flex h-9 w-9 cursor-pointer items-center justify-center rounded-md p-2 transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none">
+                <svg class="h-[1.2rem] w-[1.2rem] text-zinc-600 dark:text-zinc-400" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg>
+                <span class="sr-only">Toggle theme</span>
+              </button>
+            </div>
+          </div>
+          <p class="text-md">Software Engineer based in Lagos, Nigeria. I enjoy open source and shipping real things. I'm currently in HNG15 as an AI Product Engineer, and I'm open to freelance and contract work too.</p>
+
+          <div class="flex flex-row gap-4">
+            <a href="https://github.com/aphoe4x" rel="noopener" target="_blank" class="text-zinc-900/60 dark:text-zinc-100/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all"><span class="sr-only">GitHub</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 29 28" width="29" height="28"><path d="M14.1735 0C6.143 0 0 6.09668 0 14.1272C0 20.5481 4.04129 26.0426 9.81374 27.9764C10.5548 28.1096 10.8154 27.6522 10.8154 27.2758C10.8154 26.9169 10.798 24.9368 10.798 23.7209C10.798 23.7209 6.74514 24.5894 5.89404 21.9955C5.89404 21.9955 5.234 20.3107 4.28447 19.8765C4.28447 19.8765 2.9586 18.9674 4.3771 18.9848C4.3771 18.9848 5.81877 19.1006 6.61197 20.4786C7.87994 22.7135 10.0048 22.0708 10.8328 21.6887C10.9659 20.7623 11.3423 20.1196 11.7591 19.7375C8.52261 19.3785 5.25716 18.9096 5.25716 13.3397C5.25716 11.7475 5.69718 10.9485 6.62355 9.92954C6.47302 9.5532 5.98088 8.00153 6.77409 5.99825C7.98416 5.62191 10.7691 7.5615 10.7691 7.5615C11.927 7.23728 13.1718 7.06937 14.4051 7.06937C15.6383 7.06937 16.8831 7.23728 18.0411 7.5615C18.0411 7.5615 20.826 5.61613 22.0361 5.99825C22.8293 8.00732 22.3371 9.5532 22.1866 9.92954C23.113 10.9543 23.6804 11.7533 23.6804 13.3397C23.6804 18.9269 20.2702 19.3727 17.0337 19.7375C17.5663 20.1949 18.0179 21.0634 18.0179 22.424C18.0179 24.3751 18.0005 26.7895 18.0005 27.2643C18.0005 27.6406 18.2669 28.098 19.0022 27.9648C24.792 26.0426 28.7175 20.5481 28.7175 14.1272C28.7175 6.09668 22.204 0 14.1735 0Z"></path></svg></a>
+            <a href="https://www.linkedin.com/in/afolabi-abdulbasit-604784275/" rel="noopener" target="_blank" class="text-zinc-900/60 dark:text-zinc-100/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all"><span class="sr-only">LinkedIn</span><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 28 28" width="28" height="28"><path d="M26 0H1.99375C0.89375 0 0 0.90625 0 2.01875V25.9813C0 27.0938 0.89375 28 1.99375 28H26C27.1 28 28 27.0938 28 25.9813V2.01875C28 0.90625 27.1 0 26 0ZM8.4625 24H4.3125V10.6375H8.46875V24H8.4625ZM6.3875 8.8125C5.05625 8.8125 3.98125 7.73125 3.98125 6.40625C3.98125 5.08125 5.05625 4 6.3875 4C7.7125 4 8.79375 5.08125 8.79375 6.40625C8.79375 7.7375 7.71875 8.8125 6.3875 8.8125ZM24.0187 24H19.8687V17.5C19.8687 15.95 19.8375 13.9563 17.7125 13.9563C15.55 13.9563 15.2188 15.6438 15.2188 17.3875V24H11.0688V10.6375H15.05V12.4625H15.1062C15.6625 11.4125 17.0188 10.3062 19.0375 10.3062C23.2375 10.3062 24.0187 13.075 24.0187 16.675V24Z"></path></svg></a>
+            <a href="mailto:<?php echo $email; ?>" class="text-zinc-900/60 dark:text-zinc-100/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all"><span class="sr-only">Email</span><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+            <a href="https://drive.google.com/file/d/170DyidtQozhaVWjcGUsJiChds-YRsabG/edit" rel="noopener" target="_blank" class="text-zinc-900/60 dark:text-zinc-100/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all"><span class="sr-only">Resume</span><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></a>
+          </div>
+        </section>
+
+        <!-- Tabs (anchor nav mirroring dominikkoch.dev) -->
+        <div class="flex gap-2">
+          <div class="inline-flex w-fit items-center justify-center rounded-xl p-[3px] h-9 bg-zinc-200/60 dark:bg-zinc-800/60 flex-wrap">
+            <a href="#about" class="tab-link active inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">About</a>
+            <a href="#services" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Services</a>
+            <a href="#projects" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Projects</a>
+            <a href="#experience" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Experience</a>
+            <a href="#contact" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex w-full max-w-xl flex-col gap-8">
+        <!-- About -->
+        <div id="about" class="flex flex-col gap-3 scroll-mt-24">
+          <h1 class="font-bold text-2xl">About</h1>
+          <p class="text-zinc-500 dark:text-zinc-400">PHP &amp; Laravel developer focused on clean backend logic, real deployments, and sites that perform under pressure. I work on live systems, bug fixes, backend logic, WooCommerce, staging to production deployments and ongoing maintenance.</p>
+          <div class="flex flex-wrap gap-2 mt-1">
+            <?php foreach (['PHP','Laravel','WordPress','WooCommerce','MySQL','RESTful APIs','HTML5','CSS3','JavaScript','Bootstrap','Git & GitHub','WP Engine','Postman','MVC Architecture'] as $s): ?>
+            <span class="rounded-md bg-zinc-200/70 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-2 py-1 text-xs"><?php echo $s; ?></span>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div id="projects" class="flex flex-col gap-4 scroll-mt-24">
+          <h2 class="font-bold text-xl">Projects</h2>
+          <div class="flex flex-col gap-4">
+            <?php
+            $projects = [
+              ['n'=>'CASE','b'=>'Past','bc'=>'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-300','d'=>'Maintained a live WordPress site for a Canadian employment association.','u'=>'https://caseemploymstg.wpengine.com'],
+              ['n'=>'Artgidi','b'=>'Past','bc'=>'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-300','d'=>'Backend support in PHP 7 & Laravel. Bug fixes, MySQL optimization, payment APIs.','u'=>'https://artgidi.com'],
+              ['n'=>'Mployus Group','b'=>'Past','bc'=>'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-300','d'=>'Rebuilt frontend sections, connected to a Laravel MVC backend, handled deployments.','u'=>''],
+              ['n'=>'AGROBOT','b'=>'Past','bc'=>'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-300','d'=>'Responsive web pages for an agricultural tech company using HTML, CSS, JS.','u'=>''],
+            ];
+            foreach ($projects as $p): ?>
+            <a <?php echo $p['u'] ? 'href="'.$p['u'].'" rel="noopener noreferrer" target="_blank"' : 'href="#projects"'; ?> class="group -mx-2 flex items-start gap-3 rounded-md p-2 transition-colors hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-zinc-200 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 text-sm"><?php echo $p['n'][0]; ?></span>
+              <div class="flex min-w-0 flex-1 flex-col">
+                <div class="flex items-center gap-2">
+                  <h3 class="font-medium group-hover:underline"><?php echo $p['n']; ?></h3>
+                  <span class="rounded-md px-1.5 py-0.5 text-xs <?php echo $p['bc']; ?>"><?php echo $p['b']; ?></span>
+                </div>
+                <p class="truncate text-zinc-500 dark:text-zinc-400 text-sm"><?php echo $p['d']; ?></p>
+              </div>
+            </a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div id="experience" class="flex flex-col gap-4 scroll-mt-24">
+          <h2 class="font-bold text-xl">Experience</h2>
+          <div class="flex flex-col gap-4">
+            <div>
+              <h3 class="font-medium">AI Product Engineer at HNG15</h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Present</p>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Part of the HNG15 program, working on real AI product projects.</p>
+            </div>
+            <div>
+              <h3 class="font-medium">Contract Developer, Artgidi (Remote)</h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Sep 2024 – Present</p>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Ongoing backend support in PHP and Laravel, delivering fixes and updates. Troubleshoot and resolve production bugs affecting system performance and reliability.</p>
+            </div>
+            <div>
+              <h3 class="font-medium">WordPress Web Developer, The Canadian Association for Supported Employment (Remote)</h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Jan 2026 – Mar 2026</p>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Maintained and updated a live WordPress website, modified themes and plugins, managed staging-to-production deployments.</p>
+            </div>
+            <div>
+              <h3 class="font-medium">Full Stack Engineer (Intern), Mployus Group UK &amp; Ireland (Remote)</h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">May 2024 – Nov 2024</p>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Rebuilt HTML sections from scratch, connected frontend to a Laravel (MVC) backend, supported live bug fixes and deployment.</p>
+            </div>
+            <div>
+              <h3 class="font-medium">Frontend Web Developer, AGROBOT (Contract, Lagos)</h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Nov 2023 – Jan 2024</p>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Developed responsive web pages using HTML, CSS, and JavaScript. Improved page layout structure and overall usability.</p>
+            </div>
+            <div>
+              <h3 class="font-medium">Back End Developer, Pan Events (Contract)</h3>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Aug 2023 – Oct 2023</p>
+              <p class="text-zinc-500 dark:text-zinc-400 text-sm">Built backend features using PHP and Laravel, updated and maintained MySQL database structures for smooth data flow.</p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Services -->
+        <div id="services" class="flex flex-col gap-4 scroll-mt-24">
+          <h2 class="font-bold text-xl">Services</h2>
+          <div class="flex flex-col gap-4">
+            <div><h3 class="font-medium">WordPress &amp; WooCommerce</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Custom themes, plugin modifications, WooCommerce setups, staging-to-production deployments and ongoing maintenance.</p></div>
+            <div><h3 class="font-medium">Laravel Web Applications</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Backend systems, admin dashboards, API integrations, MVC architecture and MySQL database design built to scale.</p></div>
+            <div><h3 class="font-medium">AI Product Engineering</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Building AI-powered products through HNG15. Prompting, integration and turning models into usable features.</p></div>
+            <div><h3 class="font-medium">Frontend Integration</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Responsive HTML/CSS/JS pages connected to backend systems. Clean layouts that work on every device.</p></div>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div id="process" class="flex flex-col gap-4 scroll-mt-24">
+          <h2 class="font-bold text-xl">How I Work</h2>
+          <div class="flex flex-col gap-3">
+            <div><h3 class="font-medium">01. Understand</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">I listen first. What's the goal, what's broken, what does success look like?</p></div>
+            <div><h3 class="font-medium">02. Plan</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Clear scope, realistic timeline. No surprises mid-way through the project.</p></div>
+            <div><h3 class="font-medium">03. Build</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Clean code, tested locally, reviewed before anything touches production.</p></div>
+            <div><h3 class="font-medium">04. Deliver</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Deployed, handed over, and supported. I don't disappear after going live.</p></div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="flex flex-col gap-4 scroll-mt-24">
+          <h2 class="font-bold text-xl">Get in Touch</h2>
+          <p class="text-zinc-500 dark:text-zinc-400 text-sm">Currently available for freelance &amp; contract engagements. Email me at <a class="link-underline" href="mailto:aphoe4x@gmail.com">aphoe4x@gmail.com</a> or send a message below.</p>
+          <form id="contactForm" class="flex flex-col gap-3">
+            <input type="text" name="name" placeholder="Your name" required class="rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2 text-sm outline-none focus:border-zinc-500">
+            <input type="email" name="email" placeholder="youremail@email.com" required class="rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2 text-sm outline-none focus:border-zinc-500">
+            <textarea name="message" rows="5" placeholder="Tell me about your project..." required class="rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2 text-sm outline-none focus:border-zinc-500"></textarea>
+            <button type="submit" class="w-fit rounded-md bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 px-4 py-2 text-sm font-medium">Send Message</button>
+            <p id="formStatus" class="text-sm text-zinc-500 dark:text-zinc-400"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-50 mt-8">
+    <div class="mx-auto flex max-w-xl flex-col items-center gap-2 px-4 py-4 text-center sm:flex-row sm:justify-between sm:gap-0 sm:text-left">
+      <p class="text-sm text-zinc-900 dark:text-zinc-400">Made with ❤️ by <span class="font-bold"><?php echo $full_name; ?></span></p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    var d = !document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark', d);
+    document.documentElement.style.colorScheme = d ? 'dark' : 'light';
+    try { localStorage.setItem('theme', d ? 'dark' : 'light'); } catch(e){}
+  });
+  // highlight active tab on scroll
+  var sections = ['about','services','projects','experience','process','contact'];
+  window.addEventListener('scroll', function(){
+    var current = sections[0];
+    sections.forEach(function(id){
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 120) current = id;
+    });
+    document.querySelectorAll('.tab-link').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var status = document.getElementById('formStatus');
+    status.textContent = 'Sending...';
+    var fd = new FormData(this);
+    fetch('forms/contact.php', { method: 'POST', body: fd })
+      .then(function(r){ return r.text().then(function(t){ return {ok: r.ok, text: t}; }); })
+      .then(function(res){
+        status.textContent = res.ok ? 'Your message has been sent. Thank you!' : res.text;
+        if (res.ok) e.target.reset();
+      })
+      .catch(function(){ status.textContent = 'Failed to send. Please try again.'; });
+  });
+</script>
+</body>
+</html>

@@ -34,6 +34,13 @@ $email     = "aphoe4x@gmail.com";
     .dark .tab-link:hover { color: rgba(255,255,255,.9); }
     .tab-link.active { background: #fff; color: #000; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
     .dark .tab-link.active { background: rgba(255,255,255,.08); color: #fff; }
+    .process-card { transform: rotate(var(--r, 0deg)); }
+    @media (max-width: 640px) {
+      .process-card { transform: rotate(calc(var(--r, 0deg) * 0.5)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .process-card { transform: none; }
+    }
   </style>
 </head>
 <body class="bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 antialiased">
@@ -168,15 +175,76 @@ $email     = "aphoe4x@gmail.com";
         </div>
 
         <!-- Process -->
-        <div id="process" class="flex flex-col gap-4 scroll-mt-24">
-          <h2 class="font-bold text-xl">How I Work</h2>
-          <div class="flex flex-col gap-3">
-            <div><h3 class="font-medium">01. Understand</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">I listen first. What's the goal, what's broken, what does success look like?</p></div>
-            <div><h3 class="font-medium">02. Plan</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Clear scope, realistic timeline. No surprises mid-way through the project.</p></div>
-            <div><h3 class="font-medium">03. Build</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Clean code, tested locally, reviewed before anything touches production.</p></div>
-            <div><h3 class="font-medium">04. Deliver</h3><p class="text-zinc-500 dark:text-zinc-400 text-sm">Deployed, handed over, and supported. I don't disappear after going live.</p></div>
+        <section id="process" class="scroll-mt-24 overflow-x-clip">
+          <div class="sticky top-16 z-0 pb-8 text-center">
+            <h2 class="font-bold text-xl">How I Work</h2>
+            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Six steps from first call to long-term support.</p>
           </div>
-        </div>
+
+          <div class="flex flex-col items-center">
+            <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-20deg">
+                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">01</span>
+                <div>
+                  <h3 class="text-2xl font-bold tracking-tight">Understand</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">I listen first. What's the goal, what's broken, what does success look like?</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-16deg">
+                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">02</span>
+                <div>
+                  <h3 class="text-2xl font-bold tracking-tight">Plan</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Clear scope, realistic timeline. No surprises mid-way through the project.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-12deg">
+                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">03</span>
+                <div>
+                  <h3 class="text-2xl font-bold tracking-tight">Build</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Clean code, tested locally, reviewed before anything touches production.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-8deg">
+                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">04</span>
+                <div>
+                  <h3 class="text-2xl font-bold tracking-tight">Review</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">You see working software early and often. Feedback lands while changes are still cheap.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-4deg">
+                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">05</span>
+                <div>
+                  <h3 class="text-2xl font-bold tracking-tight">Deliver</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Deployed, handed over and documented. You own the codebase, not a black box.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sticky top-[28vh] flex w-full justify-center">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:0deg">
+                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">06</span>
+                <div>
+                  <h3 class="text-2xl font-bold tracking-tight">Support</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">I don't disappear after go-live. Fixes, updates and iteration as the product grows.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="h-[40vh] w-full" aria-hidden="true"></div>
+          </div>
+        </section>
 
         <!-- Contact -->
         <div id="contact" class="flex flex-col gap-4 scroll-mt-24">
@@ -209,7 +277,7 @@ $email     = "aphoe4x@gmail.com";
     try { localStorage.setItem('theme', d ? 'dark' : 'light'); } catch(e){}
   });
   // highlight active tab on scroll
-  var sections = ['about','services','projects','experience','process','contact'];
+  var sections = ['about','services','projects','experience','contact'];
   window.addEventListener('scroll', function(){
     var current = sections[0];
     sections.forEach(function(id){
@@ -223,16 +291,23 @@ $email     = "aphoe4x@gmail.com";
 
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
+    var form = e.target;
     var status = document.getElementById('formStatus');
     status.textContent = 'Sending...';
-    var fd = new FormData(this);
-    fetch('forms/contact.php', { method: 'POST', body: fd })
-      .then(function(r){ return r.text().then(function(t){ return {ok: r.ok, text: t}; }); })
-      .then(function(res){
-        status.textContent = res.ok ? 'Your message has been sent. Thank you!' : res.text;
-        if (res.ok) e.target.reset();
+    var fd = new FormData(form);
+    fetch('forms/contact.php', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+      .then(function(r){
+        var ct = r.headers.get('content-type') || '';
+        if (ct.indexOf('application/json') === -1) throw new Error('no-backend');
+        return r.json();
       })
-      .catch(function(){ status.textContent = 'Failed to send. Please try again.'; });
+      .then(function(data){
+        status.textContent = data.message;
+        if (data.ok) form.reset();
+      })
+      .catch(function(){
+        status.textContent = 'This form needs the PHP backend, so it cannot send from a static host. Please email aphoe4x@gmail.com directly.';
+      });
   });
 </script>
 </body>

@@ -330,6 +330,10 @@
           <h2 class="font-bold text-xl">Get in Touch</h2>
           <p class="text-zinc-500 dark:text-zinc-400 text-sm">Currently available for freelance &amp; contract engagements. Email me at <a class="link-underline" href="mailto:aphoe4x@gmail.com">aphoe4x@gmail.com</a> or send a message below.</p>
           <form id="contactForm" class="flex flex-col gap-3">
+            <input type="hidden" name="_subject" value="New message from aphoe4x.github.io portfolio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <input type="text" name="name" placeholder="Your name" required class="rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2 text-sm outline-none focus:border-zinc-500">
             <input type="email" name="email" placeholder="youremail@email.com" required class="rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2 text-sm outline-none focus:border-zinc-500">
             <textarea name="message" rows="5" placeholder="Tell me about your project..." required class="rounded-md border border-zinc-300 dark:border-zinc-700 bg-transparent px-3 py-2 text-sm outline-none focus:border-zinc-500"></textarea>
@@ -372,21 +376,24 @@
     e.preventDefault();
     var form = e.target;
     var status = document.getElementById('formStatus');
+    var button = form.querySelector('button[type="submit"]');
     status.textContent = 'Sending...';
+    button.disabled = true;
     var fd = new FormData(form);
-    fetch('forms/contact.php', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
-      .then(function(r){
-        var ct = r.headers.get('content-type') || '';
-        if (ct.indexOf('application/json') === -1) throw new Error('no-backend');
-        return r.json();
-      })
-      .then(function(data){
-        status.textContent = data.message;
-        if (data.ok) form.reset();
+    fetch('https://formsubmit.co/aphoe4x@gmail.com', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
+      .then(function(res){
+        if (res.ok && res.data && (res.data.success === true || res.data.success === 'true')) {
+          status.textContent = 'Thanks! Your message is on its way. I will reply soon.';
+          form.reset();
+        } else {
+          throw new Error('send-failed');
+        }
       })
       .catch(function(){
-        status.textContent = 'This form needs the PHP backend, so it cannot send from a static host. Please email aphoe4x@gmail.com directly.';
-      });
+        status.textContent = 'Sorry, something went wrong sending this. Please email aphoe4x@gmail.com directly.';
+      })
+      .finally(function(){ button.disabled = false; });
   });
 </script>
 </body>

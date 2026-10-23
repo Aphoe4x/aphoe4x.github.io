@@ -29,7 +29,10 @@
     .dark .tab-link:hover { color: rgba(255,255,255,.9); }
     .tab-link.active { background: #fff; color: #000; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
     .dark .tab-link.active { background: rgba(255,255,255,.08); color: #fff; }
-    .process-card { transform: rotate(var(--r, 0deg)); }
+    .process-card { transform: rotate(var(--r, 0deg)); position: relative; background-size: cover; background-position: center; }
+    .process-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: rgba(250, 250, 250, 0.76); }
+    .dark .process-card::before { background: rgba(24, 24, 27, 0.8); }
+    .process-card > * { position: relative; }
     @media (max-width: 640px) {
       .process-card { transform: rotate(calc(var(--r, 0deg) * 0.5)); }
     }
@@ -257,12 +260,12 @@
         <section id="process" class="scroll-mt-24 overflow-x-clip">
           <div class="sticky top-16 z-0 pb-8 text-center">
             <h2 class="font-bold text-xl">How I Work</h2>
-            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Six steps from first call to long-term support.</p>
+            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Four steps from first call to long-term support.</p>
           </div>
 
           <div class="flex flex-col items-center">
             <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
-              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-20deg">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-18deg; background-image:url('img/process/understand.jpg')">
                 <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">01</span>
                 <div>
                   <h3 class="text-2xl font-bold tracking-tight">Understand</h3>
@@ -272,7 +275,7 @@
             </div>
 
             <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
-              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-16deg">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-12deg; background-image:url('img/process/plan.jpg')">
                 <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">02</span>
                 <div>
                   <h3 class="text-2xl font-bold tracking-tight">Plan</h3>
@@ -282,41 +285,21 @@
             </div>
 
             <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
-              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-12deg">
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-6deg; background-image:url('img/process/build.jpg')">
                 <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">03</span>
                 <div>
-                  <h3 class="text-2xl font-bold tracking-tight">Build</h3>
-                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Clean code, tested locally, reviewed before anything touches production.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
-              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-8deg">
-                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">04</span>
-                <div>
-                  <h3 class="text-2xl font-bold tracking-tight">Review</h3>
-                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">You see working software early and often. Feedback lands while changes are still cheap.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="sticky top-[28vh] mb-[15vh] flex w-full justify-center">
-              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:-4deg">
-                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">05</span>
-                <div>
-                  <h3 class="text-2xl font-bold tracking-tight">Deliver</h3>
-                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Deployed, handed over and documented. You own the codebase, not a black box.</p>
+                  <h3 class="text-2xl font-bold tracking-tight">Build &amp; Review</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Clean code, tested locally, and you see working software early and often. Feedback lands while changes are still cheap.</p>
                 </div>
               </div>
             </div>
 
             <div class="sticky top-[28vh] flex w-full justify-center">
-              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:0deg">
-                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">06</span>
+              <div class="process-card flex min-h-[300px] w-full max-w-sm flex-col justify-between rounded-[20px] border border-zinc-200 bg-zinc-100 p-6 shadow-xl dark:border-zinc-700 dark:bg-zinc-800" style="--r:0deg; background-image:url('img/process/deliver.jpg')">
+                <span class="text-5xl font-bold tracking-tight text-zinc-300 dark:text-zinc-700">04</span>
                 <div>
-                  <h3 class="text-2xl font-bold tracking-tight">Support</h3>
-                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">I don't disappear after go-live. Fixes, updates and iteration as the product grows.</p>
+                  <h3 class="text-2xl font-bold tracking-tight">Deliver &amp; Support</h3>
+                  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Deployed, handed over and documented, then fixes and updates as the product grows. You own the codebase, not a black box.</p>
                 </div>
               </div>
             </div>

@@ -379,11 +379,16 @@
     var button = form.querySelector('button[type="submit"]');
     status.textContent = 'Sending...';
     button.disabled = true;
-    var fd = new FormData(form);
-    fetch('https://formsubmit.co/aphoe4x@gmail.com', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
-      .then(function(r){ return r.json().then(function(data){ return { ok: r.ok, data: data }; }); })
+    var data = {};
+    new FormData(form).forEach(function(v, k){ data[k] = v; });
+    fetch('https://formsubmit.co/ajax/aphoe4x@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function(r){ return r.json(); })
       .then(function(res){
-        if (res.ok && res.data && (res.data.success === true || res.data.success === 'true')) {
+        if (res && (res.success === true || res.success === 'true')) {
           status.textContent = 'Thanks! Your message is on its way. I will reply soon.';
           form.reset();
         } else {

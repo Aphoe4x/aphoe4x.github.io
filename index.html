@@ -39,6 +39,14 @@
     @media (prefers-reduced-motion: reduce) {
       .process-card { transform: none; }
     }
+    html { scroll-behavior: smooth; }
+    #tabbar.hide { transform: translateY(calc(100% + 16px)); }
+    #tabbar .pill { scrollbar-width: none; }
+    #tabbar .pill::-webkit-scrollbar { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      #tabbar { transition: none; }
+    }
   </style>
 </head>
 <body class="bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 antialiased">
@@ -72,18 +80,6 @@
             <a href="cv.pdf" rel="noopener" target="_blank" class="text-zinc-900/60 dark:text-zinc-100/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all"><span class="sr-only">Resume</span><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></a>
           </div>
         </section>
-
-        <!-- Tabs (anchor nav mirroring dominikkoch.dev) -->
-        <div class="flex gap-2">
-          <div class="inline-flex w-fit items-center justify-center rounded-xl p-[3px] h-9 bg-zinc-200/60 dark:bg-zinc-800/60 flex-wrap">
-            <a href="#about" class="tab-link active inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">About</a>
-            <a href="#services" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Services</a>
-            <a href="#projects" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Projects</a>
-            <a href="#side-projects" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Side Projects</a>
-            <a href="#experience" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Experience</a>
-            <a href="#contact" class="tab-link inline-flex h-full items-center justify-center rounded-lg px-2 py-1 text-sm font-medium transition-all">Contact</a>
-          </div>
-        </div>
       </div>
 
       <div class="flex w-full max-w-xl flex-col gap-8">
@@ -328,12 +324,23 @@
     </section>
   </main>
 
-  <footer class="relative z-50 mt-8">
+  <footer class="relative z-50 mt-8 pb-24">
     <div class="mx-auto flex max-w-xl flex-col items-center gap-2 px-4 py-4 text-center sm:flex-row sm:justify-between sm:gap-0 sm:text-left">
       <p class="text-sm text-zinc-900 dark:text-zinc-400">Made with ❤️ by <span class="font-bold">Afolabi Abdulbasit Opeyemi</span></p>
     </div>
   </footer>
 </div>
+
+<nav id="tabbar" aria-label="Section navigation" class="fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-4 transition-transform duration-300">
+  <div class="pill inline-flex max-w-full items-center rounded-xl border border-zinc-200/70 bg-white/75 p-[3px] shadow-xl backdrop-blur-md dark:border-zinc-700/70 dark:bg-zinc-900/75">
+    <a href="#about" class="tab-link active inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">About</a>
+    <a href="#services" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Services</a>
+    <a href="#projects" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Projects</a>
+    <a href="#side-projects" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Side Projects</a>
+    <a href="#experience" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Experience</a>
+    <a href="#contact" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Contact</a>
+  </div>
+</nav>
 
 <script>
   document.getElementById('themeToggle').addEventListener('click', function(){
@@ -342,8 +349,17 @@
     document.documentElement.style.colorScheme = d ? 'dark' : 'light';
     try { localStorage.setItem('theme', d ? 'dark' : 'light'); } catch(e){}
   });
-  // highlight active tab on scroll
+  // highlight active tab on scroll + Instagram-style hide/show bottom bar
   var sections = ['about','services','projects','side-projects','experience','contact'];
+  var tabbar = document.getElementById('tabbar');
+  var lastY = window.scrollY;
+  var navLock = 0;
+  document.querySelectorAll('.tab-link').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLock = Date.now() + 900;
+      if (tabbar) tabbar.classList.remove('hide');
+    });
+  });
   window.addEventListener('scroll', function(){
     var current = sections[0];
     sections.forEach(function(id){
@@ -353,6 +369,12 @@
     document.querySelectorAll('.tab-link').forEach(function(a){
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
+    var y = window.scrollY;
+    if (tabbar && Date.now() > navLock) {
+      if (y > lastY + 4 && y > 140) tabbar.classList.add('hide');
+      else if (y < lastY - 4 || y <= 140) tabbar.classList.remove('hide');
+    }
+    lastY = y;
   });
 
   document.getElementById('contactForm').addEventListener('submit', function(e){

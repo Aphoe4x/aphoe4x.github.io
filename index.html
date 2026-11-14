@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>aphoe | Afolabi Abdulbasit</title>
   <meta name="description" content="Software Engineer based in Lagos, Nigeria. PHP, Laravel, Node.js & WordPress developer.">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -40,9 +40,21 @@
       .process-card { transform: none; }
     }
     html { scroll-behavior: smooth; }
-    #tabbar.hide { transform: translateY(calc(100% + 16px)); }
-    #tabbar .pill { scrollbar-width: none; }
+    #tabbar { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+    #tabbar .ico { display: none; }
+    #tabbar .pill { scrollbar-width: none; transition: padding .2s ease; }
     #tabbar .pill::-webkit-scrollbar { display: none; }
+    #tabbar.tiny { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
+    #tabbar.tiny .pill { padding: 2px; }
+    #tabbar.tiny .lbl { display: none; }
+    #tabbar.tiny .ico { display: block; }
+    #tabbar.tiny .tab-link { padding-top: 4px; padding-bottom: 4px; padding-left: 8px; padding-right: 8px; }
+    @media (max-width: 639px) {
+      #tabbar .lbl { display: none; }
+      #tabbar .ico { display: block; }
+      #tabbar .tab-link { padding-top: 12px; padding-bottom: 12px; padding-left: 10px; padding-right: 10px; }
+      #tabbar.tiny .tab-link { padding-top: 8px; padding-bottom: 8px; padding-left: 9px; padding-right: 9px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       #tabbar { transition: none; }
@@ -331,14 +343,14 @@
   </footer>
 </div>
 
-<nav id="tabbar" aria-label="Section navigation" class="fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-4 transition-transform duration-300">
+<nav id="tabbar" aria-label="Section navigation" class="fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 transition-transform duration-300">
   <div class="pill inline-flex max-w-full items-center rounded-xl border border-zinc-200/70 bg-white/75 p-[3px] shadow-xl backdrop-blur-md dark:border-zinc-700/70 dark:bg-zinc-900/75">
-    <a href="#about" class="tab-link active inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">About</a>
-    <a href="#services" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Services</a>
-    <a href="#projects" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Projects</a>
-    <a href="#side-projects" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Side Projects</a>
-    <a href="#experience" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Experience</a>
-    <a href="#contact" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all">Contact</a>
+    <a href="#about" class="tab-link active inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all" aria-label="About"><svg class="ico h-5 w-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/></svg><span class="lbl">About</span></a>
+    <a href="#services" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all" aria-label="Services"><svg class="ico h-5 w-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span class="lbl">Services</span></a>
+    <a href="#projects" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all" aria-label="Projects"><svg class="ico h-5 w-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 20a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2z"/></svg><span class="lbl">Projects</span></a>
+    <a href="#side-projects" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all" aria-label="Side Projects"><svg class="ico h-5 w-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg><span class="lbl">Side Projects</span></a>
+    <a href="#experience" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all" aria-label="Experience"><svg class="ico h-5 w-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5l-5-5L2 17"/><path d="M16 7h6v6"/></svg><span class="lbl">Experience</span></a>
+    <a href="#contact" class="tab-link inline-flex h-full shrink-0 items-center justify-center whitespace-nowrap rounded-lg px-2 py-1 text-sm font-medium transition-all" aria-label="Contact"><svg class="ico h-5 w-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span class="lbl">Contact</span></a>
   </div>
 </nav>
 
@@ -349,17 +361,10 @@
     document.documentElement.style.colorScheme = d ? 'dark' : 'light';
     try { localStorage.setItem('theme', d ? 'dark' : 'light'); } catch(e){}
   });
-  // highlight active tab on scroll + Instagram-style hide/show bottom bar
+  // highlight active tab on scroll + tiny icon bar on scroll down
   var sections = ['about','services','projects','side-projects','experience','contact'];
   var tabbar = document.getElementById('tabbar');
   var lastY = window.scrollY;
-  var navLock = 0;
-  document.querySelectorAll('.tab-link').forEach(function(a){
-    a.addEventListener('click', function(){
-      navLock = Date.now() + 900;
-      if (tabbar) tabbar.classList.remove('hide');
-    });
-  });
   window.addEventListener('scroll', function(){
     var current = sections[0];
     sections.forEach(function(id){
@@ -370,9 +375,9 @@
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
     var y = window.scrollY;
-    if (tabbar && Date.now() > navLock) {
-      if (y > lastY + 4 && y > 140) tabbar.classList.add('hide');
-      else if (y < lastY - 4 || y <= 140) tabbar.classList.remove('hide');
+    if (tabbar) {
+      if (y > lastY + 4 && y > 140) tabbar.classList.add('tiny');
+      else if (y < lastY - 4 || y <= 140) tabbar.classList.remove('tiny');
     }
     lastY = y;
   });
